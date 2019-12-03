@@ -18,7 +18,6 @@ int main()
 	stack <string> backward;
 
 	string userInput, url, current;
-	current = "http://www.lightoj.com/";
 
 	int testCases;
 	cin >> testCases;
@@ -26,6 +25,8 @@ int main()
 	for (int i = 1; i <= testCases; i++)
 	{
 		cout << "Case " << i << ": " << endl;
+
+		current = "http://www.lightoj.com/";  // initially browser loads with lightoj url
 
 		while (cin >> userInput)
 		{
@@ -54,6 +55,10 @@ int main()
 			}
 			else if (userInput == "QUIT")
 			{
+				while (!forward.empty())  // before quit forward stack has to be emptied
+					forward.pop();
+				while (!backward.empty())  // before quit backward stack has to be emptied
+					backward.pop();
 				break;
 			}
 			else if(forward.empty() || backward.empty())

@@ -4,7 +4,6 @@
 // Problem Statement - http://lightoj.com/volume_showproblem.php?problem=1024
 // Main.cpp
 
-
 #include<iostream>
 #include<algorithm>
 #include<queue>
@@ -16,15 +15,25 @@ int main()
 	int testCases, userInput, day;
 
 	cin >> testCases;
+	string testcase[testCases];
+	int b[testCases];
 	for (int i = 1; i <= testCases; i++)
 	{
 		cin >> userInput;
-		for (int i = 0; i < userInput; i++)
+		for (int j = 0; j < userInput; j++)
 		{
 			cin >> day;
 			pq.push(day);
 		}
-		cout << "Case " << i << ": " << pq.top() << endl;
+		
+		
+		 testcase[i]={"Case "};
+		 b[i]=pq.top();
+		 
+	}
+	for(int k=1;k<=testCases;k++)
+	{
+		cout << testcase[k]<<k<< ": " <<b[k]<<endl;
 	}
 
 	cout << endl;
